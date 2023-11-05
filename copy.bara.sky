@@ -1,0 +1,42 @@
+
+gos_url = "https://github.com/GirlsOfSteelRobotics/GirlsOfSteelFRC.git"
+
+DEFAULT_LOCAL_ORIGIN_FILES_EXCLUDE = [
+    ".gitignore",
+    "**/BUILD.bazel",
+    "settings.gradle",
+]
+
+DEFAULT_LOCAL_DESTINATION_FILES_EXCLUDE = [
+    ".run/**", 
+    ".idea/**", 
+    ".vscode/**",
+    ".gitignore",
+    "copy.bara.sky",
+    "settings.gradle",
+    "vendordeps/GirlsOfSteelLib.json"
+]
+
+core.workflow(
+    name = "default",
+    origin = git.origin(
+        url = gos_url,
+        ref = "main",
+    ),
+    destination = git.destination(
+        url = "file:///home/pjreiniger/git/scra/PidCodelab",
+        fetch = "main",
+        push = "copybara_update",
+    ),
+    # Copy everything but don't remove a README_INTERNAL.txt file if it exists.
+    destination_files = glob(["**"], exclude=DEFAULT_LOCAL_DESTINATION_FILES_EXCLUDE),
+    origin_files = glob(["codelabs/pid/**", "gradle/**", "gradlew", "gradlew.bat", "settings.gradle", ".wpilib/**"], exclude=DEFAULT_LOCAL_ORIGIN_FILES_EXCLUDE + ["codelabs/pid/.gitignore"]),
+    authoring = authoring.pass_thru("Default email <default@default.com>"),
+    transformations = [
+	    core.move("codelabs/pid", ""),
+	    core.move("src/main/java/com/gos/codelabs", "src/main/java/com/scra/codelabs"),
+        core.replace(before = "com.gos.codelabs.pid", after = "com.scra.codelabs.pid", paths = glob(["**.java", "build.gradle"])),
+        core.replace(before = '    implementation project(":libraries:GirlsOfSteelLib")', after = "", paths = glob(["**.java", "build.gradle"])),
+        core.replace(before = '    implementation project(":libraries:GirlsOfSteelLibRev")', after = "", paths = glob(["**.java", "build.gradle"])),
+	],
+)

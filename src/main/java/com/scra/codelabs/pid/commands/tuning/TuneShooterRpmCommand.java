@@ -1,8 +1,8 @@
 package com.scra.codelabs.pid.commands.tuning;
 
 import com.scra.codelabs.pid.subsystems.ShooterSubsystem;
-import edu.wpi.first.wpilibj2.command.CommandBase;
 import com.gos.lib.properties.GosDoubleProperty;
+import edu.wpi.first.wpilibj2.command.CommandBase;
 
 
 public class TuneShooterRpmCommand extends CommandBase {

@@ -1,8 +1,8 @@
 package com.scra.codelabs.pid.commands.tuning;
 
 import com.scra.codelabs.pid.subsystems.ChassisSubsystem;
-import edu.wpi.first.wpilibj2.command.CommandBase;
 import com.gos.lib.properties.GosDoubleProperty;
+import edu.wpi.first.wpilibj2.command.CommandBase;
 
 public class TuneChassisVelocityCommand extends CommandBase {
     private static final GosDoubleProperty CHASSIS_VELOCITY = new GosDoubleProperty(false, "Tuning.Chassis.Velocity", 0);
