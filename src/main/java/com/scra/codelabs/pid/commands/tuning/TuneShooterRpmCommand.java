@@ -2,11 +2,11 @@ package com.scra.codelabs.pid.commands.tuning;
 
 import com.scra.codelabs.pid.subsystems.ShooterSubsystem;
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import com.gos.lib.properties.PropertyManager;
+import com.gos.lib.properties.GosDoubleProperty;
 
 
 public class TuneShooterRpmCommand extends CommandBase {
-    private static final PropertyManager.IProperty<Double> SHOOTER_RPM = PropertyManager.createDoubleProperty(false, "Tuning.Shooter.RPM", 1500);
+    private static final GosDoubleProperty SHOOTER_RPM = new GosDoubleProperty(false, "Tuning.Shooter.RPM", 1500);
 
     private final ShooterSubsystem m_spinningWheelSubsystem;
 

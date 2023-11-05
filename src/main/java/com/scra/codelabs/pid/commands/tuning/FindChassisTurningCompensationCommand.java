@@ -2,11 +2,11 @@ package com.scra.codelabs.pid.commands.tuning;
 
 import com.scra.codelabs.pid.subsystems.ChassisSubsystem;
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import com.gos.lib.properties.PropertyManager;
+import com.gos.lib.properties.GosDoubleProperty;
 
 
 public class FindChassisTurningCompensationCommand extends CommandBase {
-    private static final PropertyManager.IProperty<Double> CHASSIS_SPEED = PropertyManager.createDoubleProperty(false, "Tuning.Chassis.TurningComp", 0);
+    private static final GosDoubleProperty CHASSIS_SPEED = new GosDoubleProperty(false, "Tuning.Chassis.TurningComp", 0);
 
     private final ChassisSubsystem m_chassisSubsystem;
 
