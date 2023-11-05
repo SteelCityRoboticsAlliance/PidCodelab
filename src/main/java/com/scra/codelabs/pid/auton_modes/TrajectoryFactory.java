@@ -1,6 +1,6 @@
 package com.scra.codelabs.pid.auton_modes;
 
-import com.gos.lib.properties.PropertyManager;
+import com.gos.lib.properties.GosDoubleProperty;
 import com.scra.codelabs.pid.Constants;
 import edu.wpi.first.math.controller.SimpleMotorFeedforward;
 import edu.wpi.first.math.geometry.Pose2d;
@@ -18,8 +18,8 @@ import java.util.List;
 public final class TrajectoryFactory {
 
     public static final class AutoConstants {
-        public static final PropertyManager.IProperty<Double> MAX_SPEED_METERS_PER_SECOND = PropertyManager.createDoubleProperty(false, "Trajectory.MaxVelocity", Units.inchesToMeters(12));
-        public static final PropertyManager.IProperty<Double> MAX_ACCELERATION_METERS_PER_SECOND_SQUARED = PropertyManager.createDoubleProperty(false, "Trajectory.MaxAcceleration", Units.inchesToMeters(12));
+        public static final GosDoubleProperty MAX_SPEED_METERS_PER_SECOND = new GosDoubleProperty(false, "Trajectory.MaxVelocity", Units.inchesToMeters(12));
+        public static final GosDoubleProperty MAX_ACCELERATION_METERS_PER_SECOND_SQUARED = new GosDoubleProperty(false, "Trajectory.MaxAcceleration", Units.inchesToMeters(12));
 
     }
 

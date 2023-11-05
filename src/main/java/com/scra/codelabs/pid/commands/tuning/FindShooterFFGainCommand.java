@@ -2,11 +2,12 @@ package com.scra.codelabs.pid.commands.tuning;
 
 import com.scra.codelabs.pid.subsystems.ShooterSubsystem;
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import com.gos.lib.properties.PropertyManager;
+
+import com.gos.lib.properties.GosDoubleProperty;
 
 public class FindShooterFFGainCommand extends CommandBase {
 
-    private static final PropertyManager.IProperty<Double> SHOOTER_SPEED = PropertyManager.createDoubleProperty(false, "Tuning.Shooter.FFSpeed", 0);
+    private static final GosDoubleProperty SHOOTER_SPEED = new GosDoubleProperty(false, "Tuning.Shooter.FFSpeed", 0);
     private final ShooterSubsystem m_shooter;
 
     public FindShooterFFGainCommand(ShooterSubsystem shooter) {

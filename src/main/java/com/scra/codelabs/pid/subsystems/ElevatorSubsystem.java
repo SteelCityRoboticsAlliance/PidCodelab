@@ -13,6 +13,8 @@ import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.RobotBase;
 import edu.wpi.first.math.util.Units;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+
+import com.gos.lib.properties.GosDoubleProperty;
 import com.gos.lib.properties.PidProperty;
 import com.gos.lib.rev.RevPidPropertyBuilder;
 import org.snobotv2.module_wrappers.rev.RevEncoderSimWrapper;
@@ -21,7 +23,7 @@ import org.snobotv2.sim_wrappers.ElevatorSimWrapper;
 import org.snobotv2.sim_wrappers.ISimWrapper;
 
 public class ElevatorSubsystem extends SubsystemBase {
-    public static final PropertyManager.IProperty<Double> GRAVITY_COMPENSATION = PropertyManager.createDoubleProperty(false, "Elevator.GravityCompensationSpeed", 0);
+    public static final GosDoubleProperty GRAVITY_COMPENSATION = new GosDoubleProperty(false, "Elevator.GravityCompensationSpeed", 0);
 
     public static final double ALLOWABLE_POSITION_ERROR = .25;
 
